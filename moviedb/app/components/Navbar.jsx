@@ -1,17 +1,26 @@
-import React from "react";
+"use client"
+import Link from "next/link";
+import React, { useState } from "react";
+
 
 const Navbar = () => {
+  
+
+  const [movieName,setMovieName] = useState("anime");
+
+  
+
   return (
     <nav className="h-16 bg-[rgb(3,37,65)] flex justify-center items-center">
       <div className=" flex justify-between items-center w-[80%] h-[80%]">
         <div className="text-white flex justify-evenly items-center w-[45%] h-[80%] ">
-          <div className="w-[40%] h-[50%]">
+          <Link className="w-[40%] h-[50%]" href={'/'}>
             <img
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
               alt="logo"
               className="h-[100%] w-[100%]"
             />
-          </div>
+          </Link>
           <div className="w-[15%]"> Popular</div>
           <div className="w-[20%]">Top Rated</div>
           <div className="w-[15%]">Upcomming</div>
@@ -22,9 +31,10 @@ const Navbar = () => {
             <input
               type="search"
               placeholder="Search"
-              className="w-[70%] h-full bg-transparent border border-slate-200 rounded-xl outline-none px-2 "
+              className="w-[70%] h-full bg-transparent border border-slate-200 rounded-xl outline-none px-2"
+              onChange={(e)=> setMovieName(e.target.value)}
             />
-            <button className="cursor-pointer w-[20%]">
+            <Link className="cursor-pointer w-[20%]" href={`/search/${movieName}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -34,7 +44,7 @@ const Navbar = () => {
               >
                 <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
