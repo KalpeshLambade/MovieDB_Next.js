@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="h-16 bg-[rgb(3,37,65)] flex justify-center items-center">
       <div className=" flex justify-between items-center w-[80%] h-[80%]">
-        <div className="text-white flex justify-evenly items-center w-[45%] h-[80%]">
+        <div className="text-white flex justify-evenly items-center w-[45%] h-[80%] ">
           <div className="w-[40%] h-[50%]">
             <img
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
