@@ -20,12 +20,13 @@ const HomePage = async () => {
   const { moiveData } = await getmovie();
 
   return (
-    <main className="bg-[rgb(184,209,234)] w-[100%] flex justify-evenly items-center flex-wrap px-10">
-      {moiveData &&
+    <main className="bg-[rgb(184,209,234)] w-full min-h-screen pt-14 pb-10 flex justify-evenly items-center flex-wrap px-10">
+      
+      <div className="flex flex-wrap justify-around w-full h-full">{moiveData &&
         moiveData.map((e, i) => (
           <Link
             href={`./home/singelPage/${e.id}`}
-            className="w-[21%] my-5 flex flex-col cursor-pointer rounded-md border shadow-lg text-blue-950 font-bold"
+            className="w-[250px] my-5 flex flex-col cursor-pointer rounded-md border shadow-lg text-blue-950 font-bold"
             key={i}
           >
             <div className="border h-96 rounded-md">
@@ -42,7 +43,9 @@ const HomePage = async () => {
               Ratings: <span className="text-red-700"> {e.vote_average}</span>
             </p>
           </Link>
-        ))}
+        ))}</div>
+      
+
     </main>
   );
 };
