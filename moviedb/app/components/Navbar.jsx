@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 const Navbar = () => {
   const [movieName, setMovieName] = useState("anime");
+  const [isMobile, setIsMobile] = useState(false);
 
   return (
     <nav className="h-16 bg-[rgb(3,37,65)] flex justify-center items-center">
@@ -57,7 +58,12 @@ const Navbar = () => {
           </div>
         </div>
         {/* Mobile view */}
-        <div className="sm:hidden w-[20%] h-[80%] flex justify-center items-center">
+        <div
+          className="sm:hidden w-[20%] h-[80%] flex justify-center items-center"
+          onClick={() => {
+            setIsMobile(!isMobile);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -69,6 +75,49 @@ const Navbar = () => {
           </svg>
         </div>
       </div>
+
+      {/* hamberg div */}
+      {isMobile && (
+        <div className="sm:hidden w-full h-28 absolute top-16 right-0 flex flex-col justify-evenly items-center bg-[rgb(3,37,65)]">
+          <button className="relative inline-flex items-center justify-center p-0.5 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Login
+            </span>
+          </button>
+
+          <div className="flex justify-evenly items-center w-full">
+            <input
+              type="search"
+              placeholder="search"
+              className="border border-slate-200  w-[250px] outline-none h-10 px-2 bg-transparent rounded-lg text-white"
+              onChange={(e) => setMovieName(e.target.value)}
+            />
+
+            {/* <button className="relative inline-flex items-center justify-center p-1.5 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 h-[80%]">
+              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Search
+              </span>
+            </button> */}
+
+            <Link
+              className="relative inline-flex items-center justify-center p-0.3 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 h-[70%]"
+              href={`/search/${movieName}`}
+            >
+              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  fill="#ffffff"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
