@@ -14,8 +14,10 @@ const getMovieDetails = async (id) => {
 const SinglePage = async ({ params }) => {
   const { id } = params;
   const Details = await getMovieDetails(id);
-  const { movieDetails } = Details;
-  // console.log(movieDetails);
+  const { movieDetails, castDetails } = Details;
+  // console.log(castDetails);
+  const fallbackSrc= `https://cdn-icons-png.flaticon.com/512/10922/10922178.png`; 
+
 
   return (
     <main className="bg-[rgb(184,209,234)] ">
@@ -42,9 +44,7 @@ const SinglePage = async ({ params }) => {
 
           {/* Details */}
           <div className="mt-2 mb-5  w-[80%] sm:w-[60%] sm:h-[400px] flex flex-col justify-evenly items-stretch shadow-xl">
-            
             <div className="text-[#13005A] h-auto">
-
               <p className="text-[4vh] font-bold py-1 sm:text-[2.5vw]">
                 {movieDetails.original_title}&nbsp;(
                 {movieDetails.release_date.slice(0, 4)})
@@ -68,19 +68,66 @@ const SinglePage = async ({ params }) => {
               </div>
             </div>
 
-            <div className="border-[3px] border-red-600 w-14 h-14 p-2 m-1 rounded-full font-bold text-[2.5vh] flex justify-center items-center">{movieDetails.vote_average}</div>
+            <div className="border-[3px] border-red-600 w-14 h-14 p-2 m-1 rounded-full font-bold text-[2.5vh] flex justify-center items-center">
+              {movieDetails.vote_average}
+            </div>
 
             <div className="">
-              <h1 className="text-[3vh] font-bold p-1 sm:text-[1.5vw]">Overview :</h1>
-              <p className="p-1 font-serif font-medium sm:text-[1.2vw]">{movieDetails.overview}</p>
-
-              </div>
+              <h1 className="text-[3vh] font-bold p-1 sm:text-[1.5vw]">
+                Overview :
+              </h1>
+              <p className="p-1 font-serif font-medium sm:text-[1.2vw]">
+                {movieDetails.overview}
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Cast Details */}
-      <div></div>
+      <div className="py-2">
+        <h1 className="font-medium text-2xl px-2 text-blue-950">Cast</h1>
+        <div className="flex justify-evenly flex-wrap items-center pb-2">
+          {castDetails &&
+            castDetails.cast.map((e, i) => (
+              <div className="h-[300px] w-[220px] flex flex-col my-4 shadow-lg rounded-md">
+                <div className="h-[85%] w-full">
+                  <img
+                    src={e.profile_path ?`https://image.tmdb.org/t/p/w500/${e.profile_path}`:`https://cdn-icons-png.flaticon.com/512/4154/4154438.png`}
+                    alt="cast"
+                    className="h-full w-full rounded-md"
+                  />
+                </div>
+                <p className="h-[15%] w-full flex items-center justify-around">
+                  {e.name}
+                </p>
+              </div>
+            ))}
+        </div>
+      </div>
+
+      {/* Crew Details */}
+      <div className="py-2">
+        <h1 className="font-medium text-2xl px-2 text-blue-950">Crew</h1>
+        <div className="flex justify-evenly flex-wrap items-center pb-2">
+          {castDetails &&
+            castDetails.crew.map((e, i) => (
+              <div className="h-[300px] w-[220px] flex flex-col my-4 shadow-lg rounded-md">
+                <div className="h-[85%] w-full">
+                  <img
+                    src={e.profile_path ?`https://image.tmdb.org/t/p/w500/${e.profile_path}` :`https://cdn-icons-png.flaticon.com/512/4154/4154438.png`}
+                    alt="cast"
+                    className="h-full w-full rounded-md"
+                  />
+                </div>
+                <p className="h-[15%] w-full flex items-center justify-around">
+                  {e.name}
+                </p>
+              </div>
+            ))}
+        </div>
+      </div>
+
     </main>
   );
 };
