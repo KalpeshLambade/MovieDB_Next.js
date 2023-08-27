@@ -18,16 +18,16 @@ const Navbar = () => {
               className="h-[100%] w-[100%]"
             />
           </Link>
-          <div className="sm:w-[15%] hidden sm:flex  md:text-[1.2vw] sm:text-[1.8vw]">
+          <Link className="sm:w-[15%] hidden sm:flex  md:text-[1.2vw] sm:text-[1.8vw] cursor-pointer" href={`/`}>
             {" "}
             Popular
-          </div>
-          <div className="sm:w-[20%] hidden sm:flex  md:text-[1.2vw] sm:text-[1.6vw]">
+          </Link>
+          <Link className="sm:w-[20%] hidden sm:flex  md:text-[1.2vw] sm:text-[1.6vw] cursor-pointer" href={`/top`}>
             Top Rated
-          </div>
-          <div className="sm:w-[15%] hidden sm:flex  md:text-[1.2vw] sm:text-[1.6vw]">
+          </Link>
+          <Link className="sm:w-[15%] hidden sm:flex  md:text-[1.2vw] sm:text-[1.6vw] cursor-pointer" href={`/upcomming`}>
             Upcomming
-          </div>
+          </Link>
         </div>
 
         {/* searchbar */}

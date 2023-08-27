@@ -4,8 +4,8 @@ import React from "react";
 
 const getmovie = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/api/movies");
-
+    const response = await axios.get("http://localhost:3000/api/top");
+    
     if (response.status === 200) {
       return response.data;
     } else if (response.status === 400) {
@@ -16,14 +16,15 @@ const getmovie = async () => {
   }
 };
 
-const HomePage = async () => {
-  const { moiveData } = await getmovie();
+const TopRated = async() => {
+  const { top } = await getmovie();
+  // console.log(top);
 
   return (
     <main className="bg-[rgb(184,209,234)] w-full min-h-screen pt-14 pb-10 flex justify-evenly items-center flex-wrap px-10">
       
-      <div className="flex flex-wrap justify-around w-full h-full">{moiveData &&
-        moiveData.map((e, i) => (
+      <div className="flex flex-wrap justify-around w-full h-full">{top &&
+        top.map((e, i) => (
           <Link
             href={`/home/singelPage/${e.id}`}
             className="w-[250px] my-5 flex flex-col cursor-pointer rounded-md border shadow-lg text-blue-950 font-bold"
@@ -47,7 +48,7 @@ const HomePage = async () => {
       
 
     </main>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default TopRated

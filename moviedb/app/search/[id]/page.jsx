@@ -24,7 +24,7 @@ const SearchMovie = async ({ params }) => {
       <div className="flex flex-wrap justify-around w-full h-full">{moiveData &&
         moiveData.map((e, i) => (
           <Link
-            href={`./home/singelPage/${e.id}`}
+            href={`/home/singelPage/${e.id}`}
             className="w-[250px] my-5 flex flex-col cursor-pointer rounded-md border shadow-lg text-blue-950 font-bold"
             key={i}
           >
