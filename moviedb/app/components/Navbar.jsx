@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
+
 const Navbar = () => {
   const [movieName, setMovieName] = useState("anime");
   const [isMobile, setIsMobile] = useState(false);
@@ -57,6 +58,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+
         {/* Mobile view */}
         <div
           className="sm:hidden w-[20%] h-[80%] flex justify-center items-center"
@@ -77,6 +79,7 @@ const Navbar = () => {
       </div>
 
       {/* hamberg div */}
+
       {isMobile && (
         <div className="sm:hidden w-full h-28 absolute z-30 top-16 right-0 flex flex-col justify-evenly items-center bg-[rgb(3,37,65)]">
           <button className="relative inline-flex items-center justify-center p-0.5 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">

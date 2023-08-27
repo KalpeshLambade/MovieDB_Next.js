@@ -41,18 +41,18 @@ const SinglePage = async ({ params }) => {
           </div>
 
           {/* Details */}
-          <div className="border border-blue-800 mt-2 mb-5  w-[80%] sm:w-[60%] sm:h-[400px] flex flex-col justify-evenly items-stretch">
+          <div className="mt-2 mb-5  w-[80%] sm:w-[60%] sm:h-[400px] flex flex-col justify-evenly items-stretch shadow-xl">
             
             <div className="text-[#13005A] h-auto">
 
-              <p className="text-[4vh] font-bold py-1">
+              <p className="text-[4vh] font-bold py-1 sm:text-[2.5vw]">
                 {movieDetails.original_title}&nbsp;(
                 {movieDetails.release_date.slice(0, 4)})
               </p>
 
-              <div className="flex px-2 flex-wrap py-1">
+              <div className="flex px-2 flex-wrap py-1 ">
                 {movieDetails.adult && (
-                  <p className="text-[2.5vh] border-2 border-blue-950 flex items-center justify-center text-red-500 font-extrabold p-0.3">
+                  <p className="text-[2.5vh] sm:text-[1.5vw] border-2 border-blue-950 flex items-center justify-center text-red-500 font-extrabold p-0.3">
                     18+
                   </p>
                 )}
@@ -60,7 +60,7 @@ const SinglePage = async ({ params }) => {
                 {movieDetails?.genres?.map((e, i) => (
                   <p
                     key={i}
-                    className="px-2 text-[2.5vh] text-[#790252] font-semibold"
+                    className="px-2 text-[2.5vh] sm:text-[1.5vw] text-[#790252] font-semibold"
                   >
                     {e.name}&nbsp;
                   </p>
@@ -71,9 +71,9 @@ const SinglePage = async ({ params }) => {
             <div className="border-[3px] border-red-600 w-14 h-14 p-2 m-1 rounded-full font-bold text-[2.5vh] flex justify-center items-center">{movieDetails.vote_average}</div>
 
             <div className="">
-              <h1 className="text-[3vh] font-bold p-1">Overview :</h1>
-              <p className="p-1">{movieDetails.overview}</p>
-              
+              <h1 className="text-[3vh] font-bold p-1 sm:text-[1.5vw]">Overview :</h1>
+              <p className="p-1 font-serif font-medium sm:text-[1.2vw]">{movieDetails.overview}</p>
+
               </div>
           </div>
         </div>
