@@ -4,7 +4,7 @@ import React from "react";
 
 const getmovie = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/api/movies");
+    const response = await axios.post("http://localhost:3000/api/movies",{page:3});
 
     if (response.status === 200) {
       return response.data;
