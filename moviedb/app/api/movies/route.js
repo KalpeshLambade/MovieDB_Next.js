@@ -8,7 +8,6 @@ export async function POST(request) {
 
     const {page} = await request.json();
 
-    console.log(page);
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
     );
