@@ -19,6 +19,7 @@ const getmovie = async () => {
 
 const HomePage = async () => {
   // const { moiveData } = await getmovie();
+  
 
   return (
     // <main className="bg-[rgb(184,209,234)] w-full min-h-screen pt-14 pb-10 flex justify-evenly items-center flex-wrap px-10">
